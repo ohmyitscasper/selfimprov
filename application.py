@@ -21,6 +21,10 @@ def login():
         session['username'] = username
         return redirect('/')
     
+@app.route('/logout')
+def logout():
+	session.pop('username', None)
+	return redirect('/login')
 
 if __name__ == '__main__':
     app.debug = True
