@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block title %}
-Example Login
+	Example Login
 {% endblock %}
 
 {% block body %}
+<!--
 <h2> Please login </h2>
 <form action="/login" method="post">
-<p>Username: <input name="username" type="text"/></p>
-<p><input type="submit" value="Login"/></p>
+  <p>Username: <input name="username" type="text"/></p>
+  <p><input type="submit" value="Login"/></p>
 </form>
+-->
+
+{% endblock %}
+
+
+{% block navbar %}
+  <form class="navbar-form pull-right" action="/login" method="post">
+	<input name="username" class="span2" type="text" placeholder="Email">
+	<input class="span2" type="password" placeholder="Password">
+	<button type="submit" class="btn">Sign in</button>
+  </form>
 {% endblock %}

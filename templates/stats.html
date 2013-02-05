@@ -7,11 +7,7 @@
 {% block body %}
 	Welcome
 
-	<h2> Hello, {{ name }}! </h2>
+	<h2> You, {{ name }}, have X points! </h2>
 	<p><a href="logout"><input type="submit" value="Logout"/></a></p>
 	<p><a href="stats"><input type="submit" value="View Stats"/></a></p>
 {% endblock %}
-
-{% block navbar %}
-<a class="brand" href="#">Self-Improvement</a>
-{% endblock%}
