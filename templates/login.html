@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-	Example Login
+	Login in iimprove
 {% endblock %}
 
 {% block body %}
@@ -22,4 +22,23 @@
 	<input class="span2" type="password" placeholder="Password">
 	<button type="submit" class="btn">Sign in</button>
   </form>
+{% endblock %}
+
+{% block masthead %}
+		<h1>iSelf</h1>
+		<p>Sleek, intuitive, and simple web application to improve yourself.</p>
+		<p>
+		  <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" >Download Source Files</a>
+		</p>
+		<ul class="masthead-links">
+		  <li>
+			<a href="http://github.com/lifeismotley/selfimprov" >GitHub project</a>
+		  </li>
+		  <li>
+			<a href="./extend.html" >Extend</a>
+		  </li>
+		  <li>
+			Version 2.2.2
+		  </li>
+		</ul>
 {% endblock %}

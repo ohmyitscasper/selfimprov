@@ -37,6 +37,7 @@
   </head>
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <!-- Navigation Bar -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -83,25 +84,8 @@
 
 	<div class="jumbotron masthead">
 	  <div class="container">
-		<h1>iSelf</h1>
-		<p>Sleek, intuitive, and powerful web application to improve yourself.</p>
-		<p>
-		  <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" >Download Bootstrap</a>
-		</p>
-		<ul class="masthead-links">
-		  <li>
-			<a href="http://github.com/twitter/bootstrap" >GitHub project</a>
-		  </li>
-		  <li>
-			<a href="./getting-started.html#examples" >Examples</a>
-		  </li>
-		  <li>
-			<a href="./extend.html" >Extend</a>
-		  </li>
-		  <li>
-			Version 2.2.2
-		  </li>
-		</ul>
+		{% block masthead %}
+		{% endblock %}
 	  </div>
 	</div>
 	

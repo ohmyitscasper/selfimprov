@@ -1,6 +1,13 @@
 from flask import Flask, render_template, redirect, request, session
 app = Flask(__name__)
 
+from random import randint
+class MyClass:
+    i = 12345
+    def f(self):
+		z = randint(1,50)
+		return z
+
 @app.route('/devfest')
 def devfest():
     return redirect('http://devfe.st/')
@@ -8,8 +15,7 @@ def devfest():
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('index.html',
-                               name = session['username'])
+        return render_template('index.html', name = session['username'])
     return redirect('/login')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -20,7 +26,13 @@ def login():
         username = request.form['username']
         session['username'] = username
         return redirect('/')
-    
+
+@app.route('/stats')
+def stats():
+	x = MyClass()
+	#return render_template('stats.html', name = session['username'])
+	return render_template('stats.html', name = x.f())
+		
 @app.route('/logout')
 def logout():
 	session.pop('username', None)
