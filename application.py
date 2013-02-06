@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
-import mysql.connector
+#import mysql.connector
 app = Flask(__name__)
 
 from random import randint
@@ -12,14 +12,19 @@ class MyClass:
 @app.route('/devfest')
 def devfest():
     return redirect('http://devfe.st/')
+	
+@app.route('/getstarted')
+def getstarted():
+	return render_template('getstarted.html')
 
 @app.route('/signin')
-def devfest():
-    return redirect('/signin.html')
-	
-@app.route('/about')
-def devfest():
-    return redirect('/about.html')
+def signin():
+    if request.method == 'GET':
+        return render_template('signin.html')
+    elif request.method == 'POST':
+        username = request.form['username']
+        session['username'] = username
+        return redirect('/')
 
 @app.route('/')
 def index():
