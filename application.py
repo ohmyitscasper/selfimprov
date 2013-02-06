@@ -11,6 +11,10 @@ class MyClass:
 @app.route('/devfest')
 def devfest():
     return redirect('http://devfe.st/')
+
+@app.route('/signin')
+def devfest():
+    return redirect('/signin.html')
 	
 @app.route('/about')
 def devfest():
