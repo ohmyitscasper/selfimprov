@@ -10,6 +10,7 @@ cnx = mysql.connector.connect(
 		database='self',
 		buffered=True)
 
+cursor = cnx.cursor()
 
 
 from random import randint
@@ -23,9 +24,18 @@ class MyClass:
 def devfest():
     return redirect('http://devfe.st/')
 	
-@app.route('/about')
-def devfest():
-    return redirect('/about.html')
+@app.route('/signup')
+def signup():
+	return render_template('signup.html')
+
+@app.route('/signin')
+def signin():
+    if request.method == 'GET':
+        return render_template('signin.html')
+    elif request.method == 'POST':
+        username = request.form['username']
+        session['username'] = username
+        return redirect('/')
 
 @app.route('/')
 def index():
@@ -44,7 +54,6 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
-	cursor = cnx.cursor()
         username = request.form['username']
 	password = request.form['password']
 	query = "SELECT user_name, user_password FROM user"
@@ -55,15 +64,12 @@ def login():
 			found = True
 			if password == user_password:
 				session['username'] = username
-				cursor.close()
 				return redirect('/')
 			else:
-				cursor.close()
 				print "Wrong password"
-				return redirect('/login')
-	cursor.close()
+				return redirect('/signin')
 	print "Username not found"
-	return redirect('/login')
+	return redirect('/signin')
 
 @app.route('/stats')
 def stats():
@@ -76,17 +82,11 @@ def logout():
 	session.pop('username', None)
 	return redirect('/login')
 
-@app.route('/signup')
-def signup():
-	if request.method == 'GET':
-		return render_template('signup.html')
-#	elif request.method == 'POST':
-
-
 if __name__ == '__main__':
     app.debug = True
     app.secret_key = 'l34GE0q1l1U+4D8c4S/1Yg=='
     app.run()
 
+cursor.close()
 cnx.close()
 
