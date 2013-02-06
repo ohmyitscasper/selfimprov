@@ -11,6 +11,10 @@ class MyClass:
 @app.route('/devfest')
 def devfest():
     return redirect('http://devfe.st/')
+	
+@app.route('/about')
+def devfest():
+    return redirect('/about.html')
 
 @app.route('/')
 def index():
@@ -18,6 +22,12 @@ def index():
         return render_template('index.html', name = session['username'])
     return redirect('/login')
 
+@app.route('/index')
+def home():
+    if 'username' in session:
+        return render_template('index.html', name = session['username'])
+    return redirect('/login')
+	
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':

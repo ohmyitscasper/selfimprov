@@ -4,14 +4,18 @@
 	Self-Improvement
 {% endblock %}
 
-{% block body %}
-	Welcome
+{% block masthead %}
+		<h1>You have X points!</h1>
+		<p>Congratulations, {{name}}!</p>
+{% endblock %}
 
-	<h2> Hello, {{ name }}! </h2>
-	<p><a href="logout"><input type="submit" value="Logout"/></a></p>
+{% block body %}
 	<p><a href="stats"><input type="submit" value="View Stats"/></a></p>
 {% endblock %}
 
 {% block navbar %}
-<a class="brand" href="#">Self-Improvement</a>
+  <form class="navbar-form pull-right" action="/logout">
+	<button type="submit" class="btn">Sign out</button>
+  </form>
+  <!--<a class="brand" href="#">Self-Improvement</a> -->
 {% endblock%}
