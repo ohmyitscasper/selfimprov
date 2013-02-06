@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
+import mysql.connector
 app = Flask(__name__)
 
 from random import randint
