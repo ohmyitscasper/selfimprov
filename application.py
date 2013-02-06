@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
-#import mysql.connector
+import mysql.connector
 app = Flask(__name__)
 
 DB_NAME = 'self'
@@ -24,9 +24,9 @@ class MyClass:
 def devfest():
     return redirect('http://devfe.st/')
 	
-@app.route('/getstarted')
-def getstarted():
-	return render_template('getstarted.html')
+@app.route('/signup')
+def signup():
+	return render_template('signup.html')
 
 @app.route('/signin')
 def signin():
@@ -67,9 +67,9 @@ def login():
 				return redirect('/')
 			else:
 				print "Wrong password"
-				return redirect('/login')
+				return redirect('/signin')
 	print "Username not found"
-	return redirect('/login')
+	return redirect('/signin')
 
 @app.route('/stats')
 def stats():

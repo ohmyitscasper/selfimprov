@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Sign in &middot; Twitter Bootstrap</title>
+    <title>Sign in to simprove</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -17,7 +17,7 @@
       }
 
       .form-signin {
-        max-width: 300px;
+        max-width: 500px;
         padding: 19px 29px 29px;
         margin: 0 auto 20px;
         background-color: #fff;
@@ -61,7 +61,14 @@
 
     <div class="container">
       <form class="form-signin" action="/login" method="post">
+		
         <h2 class="form-signin-heading">Sign In Here!</h2>
+		
+		<div class="alert alert-error fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> That login didn't work! <a href="signup"> Don't have an account?</a>
+        </div>
+		
 		<input name="username" class="input-block-level" type="text" placeholder="Email">
 		<input name="password" class="input-block-level" type="text" placeholder="Password">
         <label class="checkbox">
