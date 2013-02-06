@@ -2,6 +2,17 @@ from flask import Flask, render_template, redirect, request, session
 #import mysql.connector
 app = Flask(__name__)
 
+DB_NAME = 'self'
+cnx = mysql.connector.connect(
+		user='root',
+		password='go away plz',
+		host='localhost',
+		database='self',
+		buffered=True)
+
+cursor = cnx.cursor()
+
+
 from random import randint
 class MyClass:
     i = 12345
@@ -44,8 +55,21 @@ def login():
         return render_template('login.html')
     elif request.method == 'POST':
         username = request.form['username']
-        session['username'] = username
-        return redirect('/')
+	password = request.form['password']
+	query = "SELECT user_name, user_password FROM user"
+	cursor.execute(query)
+	found = False
+	for(user_name, user_password) in cursor:
+		if username == user_name:
+			found = True
+			if password == user_password:
+				session['username'] = username
+				return redirect('/')
+			else:
+				print "Wrong password"
+				return redirect('/login')
+	print "Username not found"
+	return redirect('/login')
 
 @app.route('/stats')
 def stats():
@@ -62,3 +86,7 @@ if __name__ == '__main__':
     app.debug = True
     app.secret_key = 'l34GE0q1l1U+4D8c4S/1Yg=='
     app.run()
+
+cursor.close()
+cnx.close()
+
