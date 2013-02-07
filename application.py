@@ -28,6 +28,10 @@ def devfest():
 @app.route('/signup')
 def signup():
 	return render_template('signup.html')
+	
+@app.route('/about')
+def signup():
+	return render_template('about.html')
 
 @app.route('/signin')
 def signin():
@@ -54,13 +58,13 @@ def signin():
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('index.html', name = session['username'])
+        return render_template('dashboard.html', name = session['username'])
     return redirect('/login')
 
 @app.route('/index')
 def home():
     if 'username' in session:
-        return render_template('index.html', name = session['username'])
+        return render_template('dashboard.html', name = session['username'])
     return redirect('/login')
 	
 @app.route('/login', methods=['GET', 'POST'])
