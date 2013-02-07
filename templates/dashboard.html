@@ -1,0 +1,198 @@
+{% extends "base2.html" %}
+
+{% block title %}
+	Self-Improvement
+{% endblock %}
+
+{% block masthead %}
+	<h1>Welcome to your Dashboard!</h1>
+	<p class="lead">Your personalized hub of tasks, rewards, and points!</p>
+	<a href="#summary"><button class="btn btn-large btn-primary pull-right" type="button">Improvement Summary ></button></a>
+{% endblock %}
+
+
+{% block pageparts %}
+	<li><a href="#report-activity"><i class="icon-chevron-right"></i>Report an Activity</a></li>
+	<li><a href="#summary"><i class="icon-chevron-right"></i>Improvement Summary</a></li>
+	<li><a href="#tasks"><i class="icon-chevron-right"></i>What Makes You Proud</a></li>
+	<li><a href="#rewards"><i class="icon-chevron-right"></i>Rewards</a></li>
+{% endblock %}
+
+{% block pagecomponents %} 
+<!-- Report an Activity
+        ================================================== -->
+	<section id="report-activity">
+	  <div class="page-header">
+		<h1>Report an Activity</h1>
+	  </div>
+	  
+	  <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .form-signin {
+        max-width: 1000px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 20px;
+        height: 60px; <!--auto-->
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+	  <form class="form-signin" action="/reporttask" method="post">
+		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to make myself proud?">
+		<button type="submit" class="btn">Report this task</button>
+      </form>
+	  <form class="form-signin" action="/reportreward" method="post">
+		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to reward myself?">
+		<button type="submit" class="btn">Report this reward</button>
+      </form>
+	  
+	  <!--
+	  <form class="form-inline">
+		  <input type="text" placeholder="What did I do today to make myself proud?">
+		  <button type="submit" class="btn">Report</button>
+	  </form>
+	  -->
+	</section>
+	
+	<section id="summary">
+	  <div class="page-header">
+		<h1>Improvement Summary</h1>
+		
+		<p class="lead">You have 5684 points!</p>
+
+          <div class="row-fluid">
+            <div class="span6">
+              <p><strong>Points Earned:</strong> 25694 <br>
+			    <strong>Points Spent:</strong> 20010 <br>
+				<strong>Level:</strong> 26
+			  </p>
+            </div>
+            <div class="span6">
+              <p><strong>Total Completed Tasks:</strong> 134 <br>
+			    <strong>Total Awards Cashed Out:</strong> 86 <br>
+			    <strong>Improvement Index (i-index):</strong> 11
+			  </p>
+            </div>
+          </div>
+	  </div>
+	  
+	  
+	</section>
+
+	<section id="tasks">
+	  <div class="page-header">
+		<h1>What makes you proud?</h1>
+		
+	  <form class="form-signin" action="/addtask" method="post">
+		<input name="username" class="input-block-level" type="text" placeholder="Add a task.">
+		<button type="submit" class="btn">Add this task</button>
+      </form>
+	  
+		<table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+	  </div>
+	  
+	  
+	</section>
+	
+	<section id="rewards">
+	  <div class="page-header">
+		<h1>Rewards</h1>
+	  <form class="form-signin" action="/addtask" method="post">
+		<input name="username" class="input-block-level" type="text" placeholder="Add a reward.">
+		<button type="submit" class="btn">Add this reward</button>
+      </form>
+		
+		<table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+	  </div>
+	  
+	  
+	</section>
+	
+{% endblock %}
+
+{% block navbar %}
+  <form class="navbar-form pull-right" action="/logout">
+	<button type="submit" class="btn">Sign out</button>
+  </form>
+  <p class="navbar-text pull-right">
+    Logged in as <a href="#" class="navbar-link">{{name}}</a>
+  </p>
+{% endblock%}

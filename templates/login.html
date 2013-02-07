@@ -49,7 +49,7 @@
         <h2>Simplicity.</h2>
         <p>Improving yourself isn't complicated. Give simprove a try.</p>
 		<p>
-		  <a href="stats" class="btn btn-primary btn-large">Sign up here!</a>
+		  <a href="signup" class="btn btn-primary btn-large">Sign up here!</a>
 		</p>
       </div>
     </div>
@@ -64,6 +64,12 @@
 
 
 {% block navbar %}
+	<li class="active">
+                <a href="./index">Home</a>
+              </li>
+              <li class="">
+                <a href="./about">About</a>
+              </li></ul>
   <form class="navbar-form pull-right" action="/login" method="post">
 	<input name="username" class="span2" type="text" placeholder="Email">
 	<input name="password" class="span2" type="password" placeholder="Password">
@@ -76,6 +82,7 @@
 		<p>Sleek, intuitive, and simple web application to improve yourself.</p>
 		<p>
 		  <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" >Download Source Files</a>
+		  <a href="signup" class="btn btn-primary btn-large">Try simprove for yourself!</a>
 		</p>
 		<ul class="masthead-links">
 		  <li>
