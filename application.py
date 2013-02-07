@@ -30,7 +30,7 @@ def signup():
 	return render_template('signup.html')
 	
 @app.route('/about')
-def signup():
+def about():
 	return render_template('about.html')
 
 @app.route('/signin')
