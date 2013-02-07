@@ -10,6 +10,7 @@ cnx = mysql.connector.connect(
 		database='self',
 		buffered=True)
 
+
 cursor = cnx.cursor()
 
 
@@ -34,8 +35,21 @@ def signin():
         return render_template('signin.html')
     elif request.method == 'POST':
         username = request.form['username']
-        session['username'] = username
-        return redirect('/')
+	password = request.form['password']
+	query = "SELECT user_name, user_password FROM user"
+	cursor.execute(query)
+	found = False
+	for(user_name, user_password) in cursor:
+		if username == user_name:
+			found = True
+			if password == user_password:
+				session['username'] = username
+				return redirect('/')
+			else:
+				print "Wrong password"
+				return redirect('/signin')
+	print "Username not found"
+	return redirect('/signin')
 
 @app.route('/')
 def index():
