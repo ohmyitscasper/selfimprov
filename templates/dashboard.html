@@ -12,19 +12,12 @@
 
 
 {% block pageparts %}
-	<li><a href="#report-activity"><i class="icon-chevron-right"></i>Report an Activity</a></li>
 	<li><a href="#summary"><i class="icon-chevron-right"></i>Improvement Summary</a></li>
 	<li><a href="#tasks"><i class="icon-chevron-right"></i>What Makes You Proud</a></li>
 	<li><a href="#rewards"><i class="icon-chevron-right"></i>Rewards</a></li>
 {% endblock %}
 
 {% block pagecomponents %} 
-<!-- Report an Activity
-        ================================================== -->
-	<section id="report-activity">
-	  <div class="page-header">
-		<h1>Report an Activity</h1>
-	  </div>
 	  
 	  <style type="text/css">
       body {
@@ -57,15 +50,6 @@
       }
 
       </style>
-	  <form class="form-signin" action="/reporttask" method="post">
-		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to make yourself proud?">
-		<button type="submit" class="btn">Report this task</button>
-      </form>
-	  <form class="form-signin" action="/reportreward" method="post">
-		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to reward yourself?">
-		<button type="submit" class="btn">Report this reward</button>
-	  </form>
-	</section>
 	
 	<section id="summary">
 	  <div class="page-header">

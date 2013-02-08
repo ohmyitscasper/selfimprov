@@ -143,7 +143,7 @@ def reporttask():
 			cursor.execute(query)
 		cnx.commit()
 		
-        return render_template('dashboard.html', name = session['username'])
+        return redirect('/dashboard')
 	
 
 @app.route('/reportreward', methods=['GET','POST'])
