@@ -55,19 +55,33 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="static/assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="static/assets/ico/favicon.png">
+								   
+
   </head>
 
+  	<script>
+	function showDiv() {
+		document.getElementById('signinerror').style.display="block";
+	}
+	</script>
+  
   <body>
-
+  
     <div class="container">
       <form class="form-signin" action="/login" method="post">
 		
-        <h2 class="form-signin-heading">Sign In Here!</h2>
-		
-		<div class="alert alert-error fade in">
+		<div id="signinerror" style={{error}} class="alert alert-error fade in">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Error!</strong> That login didn't work! <a href="signup"> Don't have an account?</a>
         </div>
+		
+        <h2 class="form-signin-heading">Sign In Here!</h2>
+		
+		<!--
+		<div id="signinerror" class="alert alert-error fade in">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> That login didn't work! <a href="signup"> Don't have an account?</a>
+        </div>-->
 		
 		<input name="username" class="input-block-level" type="text" placeholder="Email">
 		<input name="password" class="input-block-level" type="text" placeholder="Password">

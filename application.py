@@ -12,6 +12,7 @@ cnx = mysql.connector.connect(
 
 cursor = cnx.cursor()
 
+signInError = 'false'
 
 from random import randint
 class MyClass:
@@ -34,8 +35,10 @@ def about():
 
 @app.route('/signin')
 def signin():
+    if 'username' in session:
+        return render_template('dashboard.html', name = session['username'])
     if request.method == 'GET':
-        return render_template('signin.html')
+        return render_template('signin.html', error = signInError)
     elif request.method == 'POST':
         username = request.form['username']
         session['username'] = username
@@ -52,7 +55,7 @@ def home():
     if 'username' in session:
         return render_template('dashboard.html', name = session['username'])
     return redirect('/login')
-	
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -68,9 +71,11 @@ def login():
 			found = True
 			if password == user_password:
 				session['username'] = username
+				signInError = 'display:none'
 				return redirect('/')
 			else:
 				print "Wrong password"
+				signInError = 'false'
 				return redirect('/signin')
 	print "Username not found"
 	return redirect('/signin')
@@ -93,4 +98,3 @@ if __name__ == '__main__':
 
 cursor.close()
 cnx.close()
-
