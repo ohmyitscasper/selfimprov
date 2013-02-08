@@ -56,33 +56,15 @@
         padding: 7px 9px;
       }
 
-    </style>
-<<<<<<< HEAD
+      </style>
 	  <form class="form-signin" action="/reporttask" method="post">
 		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to make yourself proud?">
 		<button type="submit" class="btn">Report this task</button>
       </form>
 	  <form class="form-signin" action="/reportreward" method="post">
 		<input name="username" class="input-block-level" type="text" placeholder="What did you do today to reward yourself?">
-=======
-<!--	  <form class="form-signin" action="/reporttask" method="post">
-		<input name="task_title" class="input-block-level" type="text" placeholder="What did you do today to make myself proud?">
-		<input name="task_description" class="input_block-level" type="text" placeholder="Description of task">
-		<button type="submit" class="btn">Report this task</button>
-	</form> --!>
-<!--	  <form class="form-signin" action="/reportreward" method="post">
-		<input name="reward_title" class="input-block-level" type="text" placeholder="How did you reward yourself">
-		<input name="reward_description" class="input-block-level" type="text" placeholder="Description of reward">
->>>>>>> 68bb3d390a8415e7703a3ad336e1a2b6da6151f3
 		<button type="submit" class="btn">Report this reward</button>
-	</form> --!>
-	  
-	  <!--
-	  <form class="form-inline">
-		  <input type="text" placeholder="What did I do today to make myself proud?">
-		  <button type="submit" class="btn">Report</button>
 	  </form>
-	  -->
 	</section>
 	
 	<section id="summary">
@@ -116,10 +98,8 @@
 		
 	  <form class="form-signin" action="/reporttask" method="post">
 		<input name="task_title" class="input-block-level" type="text" placeholder="Task Title">
-		<input name="task_description" class="input_block-level" type="text" placeholder="Description of task">
-		<br>
+		<input name="task_description" class="input-block-level" type="text" placeholder="Description of task">
 		<button type="submit" class="btn">Report this task</button>
-      </form>
       </form>	
 	      {{mytaskstable}}
 	  </div>
@@ -135,10 +115,6 @@
 		<input name="reward_description" class="input-block-level" type="text" placeholder="Description of reward">
 		<button type="submit" class="btn">Report this reward</button>
       </form>
-<!--	  <form class="form-signin" action="/addtask" method="post">
-		<input name="username" class="input-block-level" type="text" placeholder="Add a reward.">
-		<button type="submit" class="btn">Add this reward</button>
-	</form> -->
 		{{myrewardstable}}
 	  </div>
 	  
@@ -147,7 +123,7 @@
 	
 {% endblock %}
 
-{% block navbar %}
+{% block navbar %} 
   <form class="navbar-form pull-right" action="/logout">
 	<button type="submit" class="btn">Sign out</button>
   </form>
